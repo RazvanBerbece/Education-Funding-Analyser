@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <script src="https://kit.fontawesome.com/134efd0e9c.js" crossorigin="anonymous"></script>
+        <title> Model Prediction </title>
+        <script>
+            if (global === undefined) 
+            {
+                var global = window;
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <div class="header">
+            <i class="fab fa-python"></i>
+            <h1> Model Prediction in EEL </h1>
+        </div>
+
+        <div class="content-wrapper">
+
+            <div class="sidemenu">
+                <div class="menu">
+                    <ul class="menulist">
+                        <li class="menuButtonHome"> <p class="menuButton" onclick="switch_page(0)"> Home </p> </li>
+                        <li class="menuButtonPredict"> <p class="menuButton" onclick="switch_page(1)"> Prediction Panel </p> </li>
+                        <li class="menuButtonDesc"> <p class="menuButton" onclick="switch_page(2)"> Description </p> </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="mainPage" class="page">
+                <div class="pageHeader">
+                    <h1> Home </h1>
+                </div>
+                <div class="pageContentWrapper">
+                    <div class="pageContent">
+                        <p id="HomeText"> Lorem Ipsum blah blah blah </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="predictPage" class="page">
+                <div class="pageHeader">
+                    <h1> Prediction Panel </h1>
+                </div>
+                <div class="pageContentWrapper">
+                    <div class="pageContent">
+                        <p id="HomeText"> Lorem Ipsum blah blah blah </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="descriptionPage" class="page">
+                <div class="pageHeader">
+                    <h1> Description </h1>
+                </div>
+                <div class="pageContentWrapper">
+                    <div class="pageContent">
+                        <p id="HomeText"> Lorem Ipsum blah blah blah </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+        <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="/javascript/script.js"></script>
+    </body>
+</html>

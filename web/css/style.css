@@ -1,0 +1,155 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ---------------- RESETTER ENDS HERE ---------------- */
+
+body {
+    background-color: white;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    height: 7.5vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(80, 74, 74, 0.25);
+    box-shadow: 3px 3px 8px 0px rgb(179, 163, 163);
+}
+
+.header > h1 {
+    padding-right: 5%;
+    font-size: 1.33em;
+}
+
+.header > i {
+    padding-left: 5%;
+    font-size: 5vh;
+}
+
+.content-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidemenu {
+    height: 100%;
+    width: 17.5%;
+    background-color: #d3d3d361;
+}
+
+.menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menulist {
+    margin-top: 15%;
+    width: 100%;
+}
+
+.menulist > li {
+    padding-bottom: 5%;
+    padding-top: 15%;
+    text-align: center;
+    width: 100%;
+}
+
+.menuButton {
+    font-size: 1.13em;
+}
+
+.menuButton:hover {
+    background-color: #80808038;
+    cursor: pointer;
+}
+
+.mainPage {
+    position: relative;
+    height: 100%;
+    width: 82.5%;
+}
+
+#pageHeader {
+    position: absolute;
+    top: 10%;
+    font-size: 1.44em;
+    font-weight: 550;
+    width: 100%;
+    justify-content: flex-end;
+    height: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.pageHeader > h1 {
+    margin-right: 7.5%;
+}
+
+.pageContentWrapper {
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    height: 75%;
+}
+
+.pageContentWrapper > div {
+    margin-left: 7.5%;
+}
