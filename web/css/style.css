@@ -121,13 +121,13 @@ body {
     cursor: pointer;
 }
 
-.mainPage {
+.page {
     position: relative;
     height: 100%;
     width: 82.5%;
 }
 
-#pageHeader {
+.pageHeader {
     position: absolute;
     top: 10%;
     font-size: 1.44em;

@@ -7,7 +7,7 @@ var jqhome = $('#mainPage');
 var jqpred = $('#predictPage');
 var jqdesc = $('#descriptionPage');
 
-var jqdesc_text = $('.pageHeader').children().first();
+var jqdesc_text = $('#HomeText');
 
 function __init__() {
     jqpred.hide();
@@ -25,19 +25,25 @@ function switch_page(switch_to) {
     
     switch (switch_to) {
         case 0:
-            jqdesc.fadeOut();
-            jqpred.fadeOut();
-            jqhome.fadeIn(1000);
+            jqdesc.fadeOut(500, function() {
+                jqpred.fadeOut(500, function() {
+                    jqhome.fadeIn(850);
+                });
+            });
             break;
         case 1:
-            jqdesc.fadeOut();
-            jqhome.fadeOut();
-            jqpred.fadeIn(1000);
+            jqdesc.fadeOut(500, function() {
+                jqhome.fadeOut(500, function() {
+                    jqpred.fadeIn(850);
+                });
+            });
             break;
         case 2:
-            jqhome.fadeOut();
-            jqpred.fadeOut();
-            jqdesc.fadeIn(1000);
+            jqhome.fadeOut(500, function() {
+                jqpred.fadeOut(500, function() {
+                    jqdesc.fadeIn(850);
+                });
+            });
             break;
     }
 
