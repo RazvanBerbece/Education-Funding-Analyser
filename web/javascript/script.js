@@ -1,4 +1,4 @@
-/* -------------- TESTING JS - PYTHON FRAMEWORK -------------- */
+/* -------------- VARIABLES AND DEFAULTS INITS -------------- */
 
 var desc_text = document.getElementById('HomeText');
 var pages = document.getElementsByClassName('page');
@@ -13,7 +13,9 @@ function __init__() {
     jqpred.hide();
     jqdesc.hide();
 }
-__init__(); // Initialising the hidden pages
+__init__();
+
+/* -------------- TESTING JS - PYTHON FRAMEWORK -------------- */
 
 async function test_server_function_JS() {
     jqdesc_text.text( await eel.test_server_function("AntBBC")() );
@@ -21,8 +23,11 @@ async function test_server_function_JS() {
 }
 test_server_function_JS();
 
+/* -------------- FADEIN/FADEOUT PROCESS BETWEEN MENU ITEMS -------------- */
+
 function switch_page(switch_to) {
-    
+    // Using comletion handlers so the page divs 
+    // don't stack while transitioning leading to GUI glitches
     switch (switch_to) {
         case 0:
             jqdesc.fadeOut(500, function() {
@@ -48,3 +53,5 @@ function switch_page(switch_to) {
     }
 
 }
+
+/* -------------- TODO -------------- */

@@ -114,11 +114,18 @@ body {
 
 .menuButton {
     font-size: 1.13em;
+    display: flex;
+    justify-content: space-between;
 }
 
 .menuButton:hover {
     background-color: #80808038;
     cursor: pointer;
+}
+
+.menuButton > i {
+	margin-right: 5%;
+	font-size: 1.2em;
 }
 
 .page {

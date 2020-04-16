@@ -7,7 +7,7 @@ eel.init('web')
 @eel.expose
 def test_server_function(name):
     print(name)
-    return "Server functional..." + datetime.today().strftime('%Y-%m-%d')
+    return "Server functional..." + str(datetime.now())
 
 eel.start("index.html")
 
