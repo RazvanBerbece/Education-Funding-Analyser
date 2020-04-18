@@ -6,6 +6,7 @@
         <script src="https://kit.fontawesome.com/134efd0e9c.js" crossorigin="anonymous"></script>
         <title> Education-Funding-Analyser </title>
         <script>
+            /* Used to define GLOBAL */
             if (global === undefined) 
             {
                 var global = window;
@@ -39,17 +40,38 @@
                 <div class="pageContentWrapper">
                     <div class="pageContent">
                         <p id="HomeText"> Lorem Ipsum blah blah blah </p>
+                        <br><br>
+                        <p id="HomeText2"> 
+                            This application can be used as a means of 'predicting' the effects of different funding in the educational system of a country<br> on its <span class="toBeExplained">illiteracy rates*</span>.
+                            <br>
+                            The illiteracy rate is represented by the number of illiterate people in a specific country. 
+                            <br><br>
+                            <span class="underlined">Input:</span> The name of the country in which a change of funding is to be tested <br>and the amount of money to be invested.
+                            <br>
+                            <span class="underlined">Output:</span> The rate of illiteracy given the change in funding.
+                            <br><br>
+                            <p class="explanatory"> **In young adults (15+ year olds) </p>
+                            <br><br>
+                            <span class="toBeExplained">Created using Python and its libraries to implement the Linear Regression Algorithm.</span>
+                        </p>
                     </div>
                 </div>
             </div>
-
+            <!-- EACH OF THE CLASSES 'page' HAVE A SPECIFIC ID LINKED FOR FADEIN/FADEOUT EASE OF USE -->
             <div id="predictPage" class="page">
                 <div class="pageHeader">
                     <h1> Analysis Panel </h1>
                 </div>
                 <div class="pageContentWrapper">
                     <div class="pageContent">
-                        <!-- CONTENT FOR PAGE HERE -->
+                        <div class="analysisForm">
+                            <textarea class="input code" placeholder="Country Code (eg. : CHI = Chile)" maxlength="3" ></textarea>
+                            <textarea class="input funds" placeholder="Funds To Be Invested (in US$)"></textarea>
+                            <button class="predict"> Make an Analysis </button>
+                        </div>
+                        <div class="analysisOutput">
+                            <h1 class="output"> OUTPUT HERE </h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,5 +92,6 @@
         <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/eel.js"></script>
     <script type="text/javascript" src="/javascript/script.js"></script>
+    <script type="text/javascript" src="/javascript/helpers.js"></script>
     </body>
 </html>

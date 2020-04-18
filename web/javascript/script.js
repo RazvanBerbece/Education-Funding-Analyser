@@ -13,6 +13,9 @@ function __init__() {
     jqpred.hide();
     jqdesc.hide();
 }
+
+var inputs = []; 
+
 __init__();
 
 /* -------------- TESTING JS - PYTHON FRAMEWORK -------------- */
@@ -54,4 +57,37 @@ function switch_page(switch_to) {
 
 }
 
-/* -------------- TODO -------------- */
+/* -------------- GETTING DATA FROM INPUT FIELDS -------------- */
+
+var buttonPredict = $('.predict');
+var htmlOutput = $('.output'); /* This is used as a standard output in the HTML document */
+
+function submitInput() {
+    var countryInput = $('.code').val();
+    var fundsInput = $('.funds').val();
+
+    gotFunds = checkInputAllDigits(fundsInput); /* This is the float value of the funds given */
+
+    if (gotFunds != 0 && checkInputCountryCode(countryInput) == true) {
+        console.log(1); /* Successfully got inputs into JS */
+        inputs = [gotFunds, countryInput];
+    }
+    else { /* Will display error alert */
+        console.log(0) // Fail
+        return -1;
+    }
+}
+buttonPredict.click(function() { /* ??? */
+    $.when(submitInput()).then(logPythonInput());
+});
+
+/* -------------- SENDING INPUT TO BACKEND PYTHON THROUGH EEL -------------- */
+
+async function logPythonInput() { /* This will send the input list  */
+    console.log( await eel.pythonReceiver() );
+}
+
+eel.expose(getInputPython);
+function getInputPython() { /* This will get called in Python */
+    return inputs;
+}

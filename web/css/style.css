@@ -86,6 +86,24 @@ body {
     height: 100vh;
 }
 
+.toBeExplained {
+    font-style: italic;
+}
+
+.importantText {
+    font-weight: 700;
+}
+
+.underlined {
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.explanatory {
+    color: lightgray;
+    font-style: italic;
+}
+
 .sidemenu {
     height: 100%;
     width: 17.5%;
@@ -159,4 +177,50 @@ body {
 
 .pageContentWrapper > div {
     margin-left: 7.5%;
+}
+
+.pageContent {
+    width: 82.5%;
+    height: 100%;
+}
+
+.analysisForm {
+    width: 100%;
+    display: flex;
+    padding-top: 5%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.code {
+    font-size: 0.83em;
+    height: 20px;
+    text-align: center;
+    width: 25%;
+    resize: none;
+    box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
+}
+
+.funds {
+    font-size: 0.83em;
+    height: 20px;
+    text-align: center;
+    width: 40%;
+    resize: none;
+    box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
+    margin-top: 2.5%;
+}
+
+.analysisOutput {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+}
+
+.predict {
+    height: 25px;
+    width: 25%;
+    margin-top: 2.5%;
+    box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
 }
