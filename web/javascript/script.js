@@ -15,6 +15,7 @@ function __init__() {
 }
 
 var inputs = []; 
+var output = $('#output')
 
 __init__();
 
@@ -71,23 +72,19 @@ function submitInput() {
     if (gotFunds != 0 && checkInputCountryCode(countryInput) == true) {
         console.log(1); /* Successfully got inputs into JS */
         inputs = [gotFunds, countryInput];
+        eel.getInputList()();
     }
     else { /* Will display error alert */
         console.log(0) // Fail
         return -1;
     }
 }
-buttonPredict.click(function() { /* ??? */
-    $.when(submitInput()).then(logPythonInput());
-});
+buttonPredict.on('click', submitInput);
 
 /* -------------- SENDING INPUT TO BACKEND PYTHON THROUGH EEL -------------- */
 
-async function logPythonInput() { /* This will send the input list  */
-    console.log( await eel.pythonReceiver() );
-}
-
-eel.expose(getInputPython);
-function getInputPython() { /* This will get called in Python */
+eel.expose(logPythonInput);
+function logPythonInput() { /* This will send the input list  */
+    console.log(inputs);
     return inputs;
 }
