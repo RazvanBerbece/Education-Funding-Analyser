@@ -23,3 +23,25 @@ Server up with name AntBBC 2020-04-21 14:24:14.818206
 Server up with name AntBBC 2020-04-21 14:25:31.604175
 Server up with name AntBBC 2020-04-21 14:26:39.474014
 Server up with name AntBBC 2020-04-21 14:27:29.295322
+Server up with name AntBBC 2020-04-21 15:07:27.949861
+Called getInputList() in Python ... 2020-04-21 15:07:49.050088
+Got input: [1234, 'CHI'] 2020-04-21 15:07:49.051499
+Server up with name AntBBC 2020-04-21 16:26:23.250387
+Server up with name AntBBC 2020-04-21 16:27:29.775840
+Server up with name AntBBC 2020-04-21 16:29:28.349801
+Server up with name AntBBC 2020-04-21 16:42:43.479598
+Server up with name AntBBC 2020-04-21 16:46:05.012480
+Server up with name AntBBC 2020-04-21 16:55:49.355503
+Server up with name AntBBC 2020-04-21 17:36:38.375653
+Server up with name AntBBC 2020-04-21 17:38:50.984664
+Server up with name AntBBC 2020-04-21 17:39:14.919614
+Server up with name AntBBC 2020-04-21 17:41:16.754406
+Server up with name AntBBC 2020-04-21 17:42:39.486604
+Server up with name AntBBC 2020-04-21 17:51:30.674221
+Server up with name AntBBC 2020-04-21 18:02:47.796124
+Server up with name AntBBC 2020-04-21 18:15:19.174446
+Server up with name AntBBC 2020-04-21 18:17:44.803296
+Server up with name AntBBC 2020-04-21 18:20:53.442419
+Server up with name AntBBC 2020-04-21 18:23:18.998006
+Current score for LR : 0.8089595651164212 2020-04-21 18:25:06.812800
+Server up with name AntBBC 2020-04-21 18:25:07.853991
