@@ -66,8 +66,8 @@ body {
     height: 7.5vh;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(80, 74, 74, 0.25);
-    box-shadow: 3px 3px 8px 0px rgb(179, 163, 163);
+    background-color: rgba(160, 158, 158, 0.62);
+    box-shadow: 3px 3px 8px 0px rgb(113, 106, 106);
 }
 
 .header > h1 {
@@ -105,6 +105,8 @@ body {
 }
 
 .sidemenu {
+    z-index: 1;
+    box-shadow: 2px 5px 14px 0px rgba(29, 28, 28, 0.32);
     height: 100%;
     width: 17.5%;
     background-color: #d3d3d361;
@@ -139,6 +141,12 @@ body {
 .menuButton:hover {
     background-color: #80808038;
     cursor: pointer;
+    animation: menuSizeAnimation 1s forwards;
+}
+
+@keyframes menuSizeAnimation {
+    from {font-size: 1.13em;}
+    to {font-size: 1.30em;}
 }
 
 .menuButton > i {
@@ -162,6 +170,7 @@ body {
     height: 5%;
     display: flex;
     align-items: center;
+    text-shadow: 4px 3px 6px rgb(123, 116, 116);
 }
 
 .pageHeader > h1 {
@@ -216,6 +225,8 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 15%;
+    font-size: 1.3em;
+    font-weight: 600;
 }
 
 .predict {
@@ -223,4 +234,28 @@ body {
     width: 25%;
     margin-top: 2.5%;
     box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
+}
+
+.result {
+    text-shadow: 4px 4px 7px rgb(153, 146, 146);
+}
+
+.GDP {
+    font-size: 0.83em;
+    height: 20px;
+    text-align: center;
+    width: 25%;
+    resize: none;
+    box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
+    margin-top: 2.5%;
+}
+
+.mortality {
+    font-size: 0.83em;
+    height: 20px;
+    text-align: center;
+    width: 25%;
+    resize: none;
+    box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
+    margin-top: 2.5%;
 }

@@ -17,6 +17,7 @@ inputs = []
 
 regressor = LinearRegression()
 prediction = ""
+score = ""
 
 ## @eel.expose makes the following function visible in JS
 ## Applying the same concept before a JS function will make the JS function visible in Python
@@ -51,6 +52,8 @@ def assessModel(regressor, predictors, predicted):
     #For retrieving the slope/coefficient:
     print("Coeff. : " + str(regressor.coef_))
     #For retrieving the score of the model (greater means better):
+    global score
+    score = str("%.2f" % (regressor.score(predictors, predicted) * 100))
     print("Score : " + str(regressor.score(predictors, predicted)))
     writeToLog("Current score for LR : " + str(regressor.score(predictors, predicted)), logfile)
 
@@ -78,19 +81,22 @@ def predictOnInput():
     coefficients_ = []
     coefficients_.append(regressor.coef_)
     """
-    print(coefficients_[0][0][0]) ## <-- This gets the first coefficient
-    print(coefficients_[0][0][1]) ## <-- This gets the second coefficient
+    print(coefficients_[0][0][0]) ## <-- This gets the first coefficient list
+    print(coefficients_[0][0][1]) ## <-- This gets the second coefficient list
     """
 
     ## List that contains the float values of the coefficients
     floatCoeff = []
     floatCoeff.append(float(coefficients_[0][0][0]))
     floatCoeff.append(float(coefficients_[0][0][1]))
+    floatCoeff.append(float(coefficients_[0][0][2]))
+    floatCoeff.append(float(coefficients_[0][0][3]))
 
-    predicted = regressor.intercept_[0] + floatCoeff[0] * inputs[0] + floatCoeff[1] * inputs[1]
-    writeToLog("predictOnInput() in predict.py called : " + str(predicted), logfile)
+    ## Need to update with current coefficients
+    predicted = regressor.intercept_[0] + floatCoeff[0] * inputs[0] + floatCoeff[1] * inputs[1] + floatCoeff[2] * inputs[2] + floatCoeff[3] * inputs[3]
+    writeToLog("predictOnInput() in predict.py called : " + str("%.2f" % predicted), logfile)
 
-    return str(predicted)
+    return str("%.2f" % predicted)
 
 @eel.expose
 def getPythonPrediction():
@@ -98,6 +104,12 @@ def getPythonPrediction():
     global prediction
     writeToLog("getPythonPrediction() in predict.py called : " + prediction, logfile)
     return prediction
+
+@eel.expose
+def getPythonScore():
+    """ Returning the current model score for display in the Description frame """
+    global score
+    return score
 
 def main():
     

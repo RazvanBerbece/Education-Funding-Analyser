@@ -21,15 +21,23 @@ __init__();
 
 /* -------------- TESTING JS - PYTHON FRAMEWORK -------------- */
 
-async function test_server_function_JS() {
+async function testServerFunctionJS() {
     jqdesc_text.text( await eel.test_server_function("AntBBC")() );
     console.log("Successful !");
 }
-test_server_function_JS();
+testServerFunctionJS();
+
+/* -------------- UPDATING WITH THE CURRENT MODEL SCORE -------------- */
+
+async function updateScore() {
+    currentScore = $('#modelScore');
+    currentScore.text( await eel.getPythonScore()() );
+}
+updateScore();
 
 /* -------------- FADEIN/FADEOUT PROCESS BETWEEN MENU ITEMS -------------- */
 
-function switch_page(switch_to) {
+function switchPage(switch_to) {
     // Using comletion handlers so the page divs 
     // don't stack while transitioning leading to GUI glitches
     switch (switch_to) {
@@ -63,19 +71,27 @@ function switch_page(switch_to) {
 var buttonPredict = $('.predict');
 
 async function editOutput(newOutput) {
-    output.text( await newOutput );
+    toBeInserted = await newOutput;
+    output.fadeOut(750, function(){
+        output.text( toBeInserted );
+    });
+    output.fadeIn(1000);
 }
 
 async function submitInput() {
     var enrollment = $('.enroll').val();
     var fundsInput = $('.funds').val();
+    var GDP = $('.GDP').val();
+    var mortality = $('.mortality').val();
 
     gotFunds = checkInputAllDigits(fundsInput); /* This is the float value of the funds given */
     gotEnrollment = checkInputAllDigits(enrollment); /* This is the float value of the enrollment rate given */
+    gotGDP = checkInputAllDigits(GDP);
+    gotMortality = checkInputAllDigits(mortality);
 
     if (gotFunds != 0 && gotEnrollment != 0) {
         console.log(1); /* Successfully got inputs into JS */
-        inputs = [gotFunds, gotEnrollment];
+        inputs = [gotFunds, gotEnrollment, gotGDP, gotMortality];
         await eel.getInputList()();
         /* GETTING OUTPUT OF MODEL FROM PYTHON SIDE */
         editOutput( eel.getPythonPrediction()() )
