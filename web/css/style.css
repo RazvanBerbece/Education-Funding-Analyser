@@ -199,13 +199,18 @@ body {
     padding-top: 5%;
     flex-direction: column;
     align-items: center;
+    height: 42%;
+    background-color: rgba(212, 211, 211, 0.16);
+    padding-bottom: 5%;
+    border-radius: 12.5px;
+    box-shadow: 11px 12px 12px rgba(99, 96, 96, 0.23);
 }
 
 .enroll {
     font-size: 0.83em;
     height: 20px;
     text-align: center;
-    width: 25%;
+    width: 40%;
     resize: none;
     box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
 }
@@ -214,7 +219,7 @@ body {
     font-size: 0.83em;
     height: 20px;
     text-align: center;
-    width: 40%;
+    width: 35%;
     resize: none;
     box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
     margin-top: 2.5%;
@@ -224,15 +229,16 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 15%;
+    margin-top: 10%;
     font-size: 1.3em;
     font-weight: 600;
 }
 
 .predict {
+    font-size: 0.8em;
     height: 25px;
     width: 25%;
-    margin-top: 2.5%;
+    margin-top: 4.5%;
     box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
 }
 
@@ -244,7 +250,7 @@ body {
     font-size: 0.83em;
     height: 20px;
     text-align: center;
-    width: 25%;
+    width: 30%;
     resize: none;
     box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
     margin-top: 2.5%;
@@ -258,4 +264,37 @@ body {
     resize: none;
     box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
     margin-top: 2.5%;
+}
+
+.predictWarning {
+    width: 50%;
+    height: 25%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(323deg, rgba(255,255,255,1) 37%, rgba(135,133,133,1) 100%);
+    background: -webkit-linear-gradient(323deg, rgba(255,255,255,1) 37%, rgba(135,133,133,1) 100%);
+    background: linear-gradient(323deg, rgba(255,255,255,1) 37%, rgba(135,133,133,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#878585",GradientType=1);
+    color: black;
+    z-index: 9999;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    border-radius: 12px;
+    box-shadow: 5px 7px 11px rgb(70, 68, 68);
+}
+
+.warningButton {
+    width: 25%;
+    height: 15%;
+    margin-top: 5%;
+    font-size: 0.8em;
+}
+
+#modelScore {
+    font-weight: 700;
 }

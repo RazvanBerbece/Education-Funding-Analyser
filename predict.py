@@ -94,6 +94,8 @@ def predictOnInput():
 
     ## Need to update with current coefficients
     predicted = regressor.intercept_[0] + floatCoeff[0] * inputs[0] + floatCoeff[1] * inputs[1] + floatCoeff[2] * inputs[2] + floatCoeff[3] * inputs[3]
+    if predicted < 0:
+        predicted = 0.0
     writeToLog("predictOnInput() in predict.py called : " + str("%.2f" % predicted), logfile)
 
     return str("%.2f" % predicted)

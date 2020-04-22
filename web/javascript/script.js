@@ -9,6 +9,10 @@ var jqdesc = $('#descriptionPage');
 
 var jqdesc_text = $('#HomeText');
 
+var analysisWarning = $('.predictWarning');
+var warningButton = $('.warningButton');
+var clickedWarningButton = false;
+
 function __init__() {
     jqpred.hide();
     jqdesc.hide();
@@ -18,6 +22,24 @@ var inputs = [];
 var output = $('#output')
 
 __init__();
+
+/* -------------- PREDICTION WARNING METHODOLOGY -------------- */
+
+function displayWarning() {
+    analysisWarning.show();
+    document.getElementsByClassName("analysisForm")[0].style.webkitFilter = "blur(5px)";
+    document.getElementsByClassName("analysisOutput")[0].style.webkitFilter = "blur(5px)";
+}
+displayWarning();
+
+function hideWarning() {
+    clickedWarningButton = true;
+    analysisWarning.fadeOut(750, function() {
+        document.getElementsByClassName("analysisForm")[0].style.webkitFilter = "blur(0px)";
+        document.getElementsByClassName("analysisOutput")[0].style.webkitFilter = "blur(0px)";
+    });
+}
+warningButton.on('click', hideWarning);
 
 /* -------------- TESTING JS - PYTHON FRAMEWORK -------------- */
 
@@ -30,8 +52,10 @@ testServerFunctionJS();
 /* -------------- UPDATING WITH THE CURRENT MODEL SCORE -------------- */
 
 async function updateScore() {
-    currentScore = $('#modelScore');
-    currentScore.text( await eel.getPythonScore()() );
+    currentScoreOne = $('#modelScore');
+    currentScoreTwo = $('#modelScoreTwo');
+    currentScoreOne.text( await eel.getPythonScore()() );
+    currentScoreTwo.text( await eel.getPythonScore()() );
 }
 updateScore();
 
@@ -52,6 +76,9 @@ function switchPage(switch_to) {
             jqdesc.fadeOut(500, function() {
                 jqhome.fadeOut(500, function() {
                     jqpred.fadeIn(850);
+                    if (clickedWarningButton == false) {
+                        displayWarning(analysisWarning);
+                    }
                 });
             });
             break;
@@ -72,6 +99,10 @@ var buttonPredict = $('.predict');
 
 async function editOutput(newOutput) {
     toBeInserted = await newOutput;
+    /* CHECKING IF OUTPUT WAS 0, CASE IN WHICH WE WARN THE USER */
+    if (toBeInserted[0] == '0') {
+        // TODO CUSTOM ALERT
+    }
     output.fadeOut(750, function(){
         output.text( toBeInserted );
     });
@@ -89,7 +120,7 @@ async function submitInput() {
     gotGDP = checkInputAllDigits(GDP);
     gotMortality = checkInputAllDigits(mortality);
 
-    if (gotFunds != 0 && gotEnrollment != 0) {
+    if (gotFunds && gotEnrollment && gotGDP && gotMortality) {
         console.log(1); /* Successfully got inputs into JS */
         inputs = [gotFunds, gotEnrollment, gotGDP, gotMortality];
         await eel.getInputList()();

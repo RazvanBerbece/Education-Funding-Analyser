@@ -17,7 +17,9 @@
     <body>
 
         <div class="header">
-            <i class="fab fa-python"></i>
+            <i class="fab fa-python" style="
+            color: rgba(249, 245, 87, 0.73);
+        "></i>
             <h1> Education-Funding-Analyser </h1>
         </div>
 
@@ -46,7 +48,7 @@
                             <br>
                             The illiteracy rate is represented by the percentage of illiterate people in a specific country. 
                             <br><br>
-                            <span class="underlined">Input:</span> The current or a target gross percentage of primary school enrollment <br>and the amount of money to be invested (expressed as % of GDP).
+                            <span class="underlined">Input:</span> Various values represented either in numbers or percentages <span class="underlined">(what to input is explained in the text boxes)</span>
                             <br>
                             <span class="underlined">Output:</span> The rate of illiteracy given the change in funding.
                             <br><br>
@@ -59,25 +61,34 @@
             </div>
             <!-- EACH OF THE CLASSES 'page' HAVE A SPECIFIC ID LINKED FOR FADEIN/FADEOUT EASE OF USE -->
             <div id="predictPage" class="page">
-                <div class="pageHeader">
+                <div id="warningID" class="predictWarning">
+                    <h1 class="warningText"> This illiteracy rate predictor MAY output values which do not faithfully represent the given situation ! </h1>
+                    <br>
+                    <span class="warningScore"> Current accuracy of the model : <span id="modelScore"> ...</span>% </span>
+                    <br>
+                    <button class="warningButton"> Got it ! </button>
+                </div>
+                <div id="warningHeader" class="pageHeader">
                     <h1> Analysis Panel </h1>
                 </div>
                 <div class="pageContentWrapper">
                     <div class="pageContent">
                         <div class="analysisForm">
                             <p> 
-                                <span class="toBeExplained">Don't include the '%' sign.</span>
+                                <span class="toBeExplained" style="
+                                color: rgba(109, 109, 109, 0.58);
+                            ">Don't include the '%' or '$' signs.</span>
                             </p>
-                            <textarea class="input enroll" placeholder="Gross Primary Enrollment (%)"></textarea>
-                            <textarea class="input funds" placeholder="Funds To Be Invested (% of GDP)"></textarea>
-                            <textarea class="input GDP" placeholder="GDP per capita (number)"></textarea>
+                            <textarea class="input enroll" placeholder="Primary School Enrollment (%, Gross)"></textarea>
+                            <textarea class="input funds" placeholder="Funds To Be Invested (%, GDP)"></textarea>
+                            <textarea class="input GDP" placeholder="GDP per capita (number, $)"></textarea>
                             <textarea class="input mortality" placeholder="Mortality (number/1000 births)"></textarea>
                             <button class="predict"> Make an Analysis </button>
                         </div>
                         <div class="analysisOutput">
                             <span class="result"> Resulted Illiteracy Rate : </span>
                             &nbsp;&nbsp;
-                            <h1 id="output" class="result"> * prediction result ... * </h1>%
+                            <h1 id="output" class="result">...</h1>%
                         </div>
                     </div>
                 </div>
@@ -99,7 +110,7 @@
                             <br>
                             and the gross primary school enrollment percentage. 
                             <br><br>
-                            The algorithm predicts the change in the rate of illiteracy, <span class="underlined">the current score of the model being <span id="modelScore">( ... )</span>%</span>.
+                            The algorithm predicts the change in the rate of illiteracy, <span class="underlined">the current score of the model being <span id="modelScoreTwo">( ... )</span>%</span>.
                         </p>
                     </div>
                 </div>
