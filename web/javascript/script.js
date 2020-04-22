@@ -61,18 +61,24 @@ function switch_page(switch_to) {
 /* -------------- GETTING DATA FROM INPUT FIELDS -------------- */
 
 var buttonPredict = $('.predict');
-var htmlOutput = $('.output'); /* This is used as a standard output in the HTML document */
 
-function submitInput() {
-    var countryInput = $('.code').val();
+async function editOutput(newOutput) {
+    output.text( await newOutput );
+}
+
+async function submitInput() {
+    var enrollment = $('.enroll').val();
     var fundsInput = $('.funds').val();
 
     gotFunds = checkInputAllDigits(fundsInput); /* This is the float value of the funds given */
+    gotEnrollment = checkInputAllDigits(enrollment); /* This is the float value of the enrollment rate given */
 
-    if (gotFunds != 0 && checkInputCountryCode(countryInput) == true) {
+    if (gotFunds != 0 && gotEnrollment != 0) {
         console.log(1); /* Successfully got inputs into JS */
-        inputs = [gotFunds, countryInput];
-        eel.getInputList()();
+        inputs = [gotFunds, gotEnrollment];
+        await eel.getInputList()();
+        /* GETTING OUTPUT OF MODEL FROM PYTHON SIDE */
+        editOutput( eel.getPythonPrediction()() )
     }
     else { /* Will display error alert */
         console.log(0) // Fail

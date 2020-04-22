@@ -65,12 +65,13 @@
                 <div class="pageContentWrapper">
                     <div class="pageContent">
                         <div class="analysisForm">
-                            <textarea class="input code" placeholder="Country Code (eg. : CHI = Chile)" maxlength="3" ></textarea>
-                            <textarea class="input funds" placeholder="Funds To Be Invested (% of GDP)"></textarea>
+                            <p> Don't include the '%' sign. </p>
+                            <textarea class="input enroll" placeholder="Gross Primary Enrollment (in %)"></textarea>
+                            <textarea class="input funds" placeholder="Funds To Be Invested (in % of GDP)"></textarea>
                             <button class="predict"> Make an Analysis </button>
                         </div>
                         <div class="analysisOutput">
-                            <h1 id="output"> OUTPUT HERE </h1>
+                            <h1 id="output"> * prediction result ... * </h1>
                         </div>
                     </div>
                 </div>
@@ -82,7 +83,18 @@
                 </div>
                 <div class="pageContentWrapper">
                     <div class="pageContent">
-                        <!-- CONTENT FOR PAGE HERE -->
+                        <p class="desc">
+                            Project built by Antonio Berbece (2020) as a means of understanding how Linear Regression works.
+                            <br>
+                            In addition, this also emphasizes framework usage (Eel, Jquery).
+                            <br><br>
+                            <span class="underlined">Algorithm Description:</span> <br>
+                            Multiple Linear Regression which uses (for now) the % GDP allocated for education (in total)
+                            <br>
+                            and the gross primary school enrollment percentage. 
+                            <br><br>
+                            The algorithm predicts the change in the rate of illiteracy, <span class="underlined">the score of the current model being 80%.</span>.
+                        </p>
                     </div>
                 </div>
             </div>

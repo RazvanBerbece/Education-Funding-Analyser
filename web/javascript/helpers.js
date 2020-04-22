@@ -12,18 +12,3 @@ function checkInputAllDigits(input) {
 
     return value;
 }
-
-/** Checks if the input is a valid country code
- *  Because the textarea has a constraint of 3 letters, we don't have to check the length.
- * 
- *  Return TRUE if all characters of the input are alphabetic.
- */
-function checkInputCountryCode(code) {
-    if (code.length != 3) return false;
-    for (i = 0; i < code.length; i++) {
-        if (!(typeof code[i] === "string" && code[i].length === 1 && /[A-Z]/.test(code[i]))) {
-            return false;
-        }
-    }
-    return true;
-}
