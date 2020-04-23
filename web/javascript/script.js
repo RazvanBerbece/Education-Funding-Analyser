@@ -6,6 +6,7 @@ var pages = document.getElementsByClassName('page');
 var jqhome = $('#mainPage');
 var jqpred = $('#predictPage');
 var jqdesc = $('#descriptionPage');
+var jqdata = $('#dataPage');
 
 var jqdesc_text = $('#HomeText');
 
@@ -13,9 +14,12 @@ var analysisWarning = $('.predictWarning');
 var warningButton = $('.warningButton');
 var clickedWarningButton = false;
 
+var csvText = $('#csvData');
+
 function __init__() {
     jqpred.hide();
     jqdesc.hide();
+    jqdata.hide();
 }
 
 var inputs = []; 
@@ -66,26 +70,38 @@ function switchPage(switch_to) {
     // don't stack while transitioning leading to GUI glitches
     switch (switch_to) {
         case 0:
-            jqdesc.fadeOut(500, function() {
-                jqpred.fadeOut(500, function() {
-                    jqhome.fadeIn(850);
+            jqdesc.fadeOut(222, function() {
+                jqpred.fadeOut(222, function() {
+                    jqdata.fadeOut(222, function() {
+                        jqhome.fadeIn(850);
+                    });
                 });
             });
             break;
         case 1:
-            jqdesc.fadeOut(500, function() {
-                jqhome.fadeOut(500, function() {
-                    jqpred.fadeIn(850);
-                    if (clickedWarningButton == false) {
-                        displayWarning(analysisWarning);
-                    }
+            jqhome.fadeOut(222, function() {
+                jqdesc.fadeOut(222, function() {
+                    jqdata.fadeOut(222, function() {
+                        jqpred.fadeIn(850);
+                    });
                 });
             });
             break;
         case 2:
-            jqhome.fadeOut(500, function() {
-                jqpred.fadeOut(500, function() {
-                    jqdesc.fadeIn(850);
+            jqhome.fadeOut(222, function() {
+                jqpred.fadeOut(222, function() {
+                    jqdata.fadeOut(222, function() {
+                        jqdesc.fadeIn(850);
+                    });
+                });
+            });
+            break;
+        case 3:
+            jqhome.fadeOut(222, function() {
+                jqpred.fadeOut(222, function() {
+                    jqdesc.fadeOut(222, function() {
+                        jqdata.fadeIn(850);
+                    });
                 });
             });
             break;
@@ -140,4 +156,59 @@ eel.expose(logPythonInput);
 function logPythonInput() { /* This will send the input list  */
     console.log(inputs);
     return inputs;
+}
+
+/* -------------- GETTING CSV DATA TABLE FROM PYTHON -------------- */
+
+async function getCSV() {
+    CSVdata = await eel.returnCSVpython()();
+    displayFormattedTable( CSVdata );
+}
+getCSV();
+
+function displayFormattedTable(tableString) {
+
+    var htmlData = $('#data');
+
+    var tbl = document.createElement('table');
+    tbl.style.width = '100%';
+    tbl.setAttribute('border', '1');
+
+    var wordCounter = 0;
+    var lineCounter = 0;
+    var stringArray = tableString.split(/(\s+)/);
+
+    for (var i = 0; i < stringArray.length; i++) {
+
+        if (/^\s+$/.test(stringArray[i])) {
+            continue;
+        }
+
+        if (wordCounter == 6) {
+            lineCounter += 1;
+        }
+
+        if (wordCounter == 6 || !i) {
+            var tr = tbl.insertRow();
+            wordCounter = 0;
+            continue;
+        }
+
+        if (!lineCounter) {
+            var td = tr.insertCell();
+            td.append( document.createTextNode(stringArray[i]) );
+            td.className = 'tableheader';
+            td.style.border = '1px solid black';
+            td.style.textAlign = 'right';
+        }
+        else {
+            var td = tr.insertCell();
+            td.append(document.createTextNode(stringArray[i]));
+            td.style.border = '1px solid black';
+            td.style.textAlign = 'right';
+        }
+
+        wordCounter += 1;
+    }
+    htmlData.append(tbl);
 }

@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script src="https://kit.fontawesome.com/134efd0e9c.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
         <title> Education-Funding-Analyser </title>
         <script>
             /* Used to define GLOBAL */
@@ -31,6 +32,7 @@
                         <li class="menuButtonHome"> <p class="menuButton" onclick="switchPage(0)"> &nbsp;&nbsp;&nbsp;Home <i class="fas fa-home"></i> </p> </li>
                         <li class="menuButtonPredict"> <p class="menuButton" onclick="switchPage(1)"> &nbsp;&nbsp;&nbsp;Analysis Panel <i class="fas fa-table"></i> </p> </li>
                         <li class="menuButtonDesc"> <p class="menuButton" onclick="switchPage(2)"> &nbsp;&nbsp;&nbsp;Description <i class="fab fa-readme"></i> </p> </li>
+                        <li class="menuButtonCont"> <p class="menuButton" onclick="switchPage(3)"> &nbsp;&nbsp;&nbsp;Data <i class="fas fa-database"></i> </p> </li>
                     </ul>
                 </div>
             </div>
@@ -40,7 +42,9 @@
                     <h1> Home </h1>
                 </div>
                 <div class="pageContentWrapper">
-                    <div class="pageContent">
+                    <div class="pageContent" style="
+                    font-size: 1.05em;
+                ">
                         <p id="HomeText"> Server connecting ... </p>
                         <br><br>
                         <p id="HomeText2"> 
@@ -112,6 +116,24 @@
                             <br><br>
                             The algorithm predicts the change in the rate of illiteracy, <span class="underlined">the current score of the model being <span id="modelScoreTwo">( ... )</span>%</span>.
                         </p>
+                    </div>
+                </div>
+            </div>
+            <div id="dataPage" class="page">
+                <div class="pageHeader">
+                    <h1> Data </h1>
+                </div>
+                <div class="pageContentWrapper">
+                    <div class="pageContent">
+                        <p class="desc">
+                            This is the data used for the Linear Regression algorithm, presented in CSV format.
+                            <br><br>
+                        </p>
+                        <div class="dataWrapper">
+                            <div id="data">
+                                <!-- Data will be appended here through JS -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

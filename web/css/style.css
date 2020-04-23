@@ -50,6 +50,7 @@ table {
 /* ---------------- RESETTER ENDS HERE ---------------- */
 
 body {
+    font-family: 'Montserrat', sans-serif;
     background-color: white;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -136,6 +137,7 @@ body {
     font-size: 1.13em;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .menuButton:hover {
@@ -163,14 +165,14 @@ body {
 .pageHeader {
     position: absolute;
     top: 10%;
-    font-size: 1.44em;
+    font-size: 1.6em;
     font-weight: 550;
     width: 100%;
     justify-content: flex-end;
     height: 5%;
     display: flex;
     align-items: center;
-    text-shadow: 4px 3px 6px rgb(123, 116, 116);
+    text-shadow: 6px 5px 6px rgb(123, 116, 116);
 }
 
 .pageHeader > h1 {
@@ -240,10 +242,7 @@ body {
     width: 25%;
     margin-top: 4.5%;
     box-shadow: 3px 3px 5px rgba(99, 91, 91, 0.78);
-}
-
-.result {
-    text-shadow: 4px 4px 7px rgb(153, 146, 146);
+    cursor: pointer;
 }
 
 .GDP {
@@ -274,11 +273,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgb(255,255,255);
-    background: -moz-linear-gradient(323deg, rgba(255,255,255,1) 37%, rgba(135,133,133,1) 100%);
-    background: -webkit-linear-gradient(323deg, rgba(255,255,255,1) 37%, rgba(135,133,133,1) 100%);
-    background: linear-gradient(323deg, rgba(255,255,255,1) 37%, rgba(135,133,133,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#878585",GradientType=1);
+    background-color: rgba(222, 218, 218, 0.56);
     color: black;
     z-index: 9999;
     position: absolute;
@@ -291,10 +286,22 @@ body {
 .warningButton {
     width: 25%;
     height: 15%;
-    margin-top: 5%;
+    margin-top: 2%;
     font-size: 0.8em;
+    border-radius: 22%;
+    background-color: rgba(255, 255, 255, 0.84);
+    cursor: pointer;
 }
 
 #modelScore {
+    font-weight: 700;
+}
+
+.warningScore {
+    margin-top: 2%;
+}
+
+.tableheader {
+    font-size: 1.2em;
     font-weight: 700;
 }

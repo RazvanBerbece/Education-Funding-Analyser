@@ -19,6 +19,8 @@ regressor = LinearRegression()
 prediction = ""
 score = ""
 
+dataset = ""
+
 ## @eel.expose makes the following function visible in JS
 ## Applying the same concept before a JS function will make the JS function visible in Python
 @eel.expose
@@ -109,15 +111,22 @@ def getPythonPrediction():
 
 @eel.expose
 def getPythonScore():
-    """ Returning the current model score for display in the Description frame """
+    """ Returns the current model score for display in the Description frame """
     global score
     return score
+
+@eel.expose
+def returnCSVpython():
+    """ Returns the CSV data table in str format (maintaining CSV look) """
+    global dataset
+    return str(dataset)
 
 def main():
     
     ## Loading the CSV file which has the Education Statistics ##
+    global dataset
     dataset = pd.read_csv("Dataset/pythstats.csv")
-    print(dataset)
+    print(str(dataset))
 
     Xm = dataset.drop(['country', 'illiteracyNo'], axis=1)
     y = dataset['illiteracyNo'].values.reshape(-1,1)
